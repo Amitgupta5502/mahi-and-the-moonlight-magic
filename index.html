@@ -1,1 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahi and the Moonlight Magic 🌙</title>
 
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fffaff, #ffe1ef, #fff7fc);
+    color: #873c62;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px 75px;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px 20px;
+    border: 1px solid #ffc3df;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 10px 35px #ff8fbd35;
+}
+
+.moon {
+    font-size: 65px;
+    animation: glow 2s infinite alternate;
+}
+
+h1 {
+    color: #ed4697;
+    font-size: 32px;
+}
+
+p {
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 13px 25px;
+    margin: 8px;
+    background: #ff58a5;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.04);
+}
+
+.secondary {
+    background: white;
+    color: #ed4697;
+    border: 2px solid #ffadd1;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+    animation: appear .5s ease;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    color: #ff78b7;
+    animation: float 9s linear infinite;
+    pointer-events: none;
+}
+
+.footer {
+    position: fixed;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    color: #df438d;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 8px #ffaad2; }
+    to { text-shadow: 0 0 28px #ff58a5; }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<main class="container">
+
+<section class="card page active" id="page1">
+    <div class="moon">🌙</div>
+    <h1>Mahi and the Moonlight Magic</h1>
+    <p>A little magical surprise made with love 💗</p>
+    <p>For someone very special 🎀</p>
+    <button onclick="showPage('page2')">
+        Open Your Surprise 💝
+    </button>
+</section>
+
+<section class="card page" id="page2">
+    <div class="moon">🎁</div>
+    <h1>A Little Surprise for You!</h1>
+    <p>Hey, Mahi ji! 💗</p>
+    <p>Aapke liye ek chhota sa surprise banaya hai. 🥹🎀</p>
+    <button onclick="showPage('page3')">YES 💖</button>
+    <button class="secondary" onclick="showPage('page1')">Back</button>
+</section>
+
+<section class="card page" id="page3">
+    <div class="moon">💗</div>
+    <h1>A Little World for You</h1>
+    <p>Choose what you want to open! ✨</p>
+    <button onclick="showPage('memories')">📸 Memories</button>
+    <button onclick="showPage('letter')">💌 Letter</button>
+    <button onclick="showPage('music')">🎵 Music</button>
+    <br>
+    <button class="secondary" onclick="showPage('page1')">
+        Back to Start
+    </button>
+</section>
+
+<section class="card page" id="memories">
+    <div class="moon">📸</div>
+    <h1>Little Moments, Big Memories</h1>
+    <p>Your Personal Editor's Favourite Clicks 💗</p>
+    <p>Every picture tells a story. 🌸</p>
+    <p>Our memories are still waiting to be made. 🎀</p>
+    <button class="secondary" onclick="showPage('page3')">
+        ← Back to Menu
+    </button>
+</section>
+
+<section class="card page" id="letter">
+    <div class="moon">💌</div>
+    <h1>A Little Letter</h1>
+    <p>Dear Mahi ji, 💗</p>
+    <p>
+        Aap mere liye bahut special hain.
+        Aap hamesha khush rahein aur aapki
+        smile hamesha bani rahe. 🌸
+    </p>
+    <p>Written with love by Your Personal Editor 🎀</p>
+    <button class="secondary" onclick="showPage('page3')">
+        ← Back to Menu
+    </button>
+</section>
+
+<section class="card page" id="music">
+    <div class="moon">🎵</div>
+    <h1>A Song for You</h1>
+    <p>Kaun Tujhe 💗</p>
+    <p>Choose your own audio file to play it here.</p>
+    <input type="file" accept="audio/*" id="audioFile">
+    <audio controls id="audioPlayer" style="width:100%; margin-top:15px"></audio>
+    <button class="secondary" onclick="showPage('page3')">
+        ← Back to Menu
+    </button>
+</section>
+
+<section class="card page" id="hug">
+    <div class="moon">🧸</div>
+    <h1>A Virtual Hug for You</h1>
+    <p>Sending you lots of happiness, Mahi ji! 💗</p>
+    <button onclick="showPage('birthday')">Next →</button>
+</section>
+
+<section class="card page" id="birthday">
+    <div class="moon">🎂</div>
+    <h1>Happy Birthday, Madam Ji! 😊</h1>
+    <p>It's All for You! 🎀</p>
+    <p>Made with lots of love 💝</p>
+    <button onclick="showPage('page3')">🏠 Back to Main Menu</button>
+</section>
+
+</main>
+
+<div class="footer">Powered by Amit Gupta 💝</div>
+
+<script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+}
+
+for (let i = 0; i < 20; i++) {
+    const heart = document.createElement('span');
+
+    heart.className = 'heart';
+    heart.textContent = i % 2 ? '♡' : '♥';
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDelay = Math.random() * 8 + 's';
+    heart.style.fontSize = (14 + Math.random() * 15) + 'px';
+
+    document.getElementById('hearts').appendChild(heart);
+}
+
+document.getElementById('audioFile').addEventListener('change', function() {
+    if (this.files[0]) {
+        document.getElementById('audioPlayer').src =
+            URL.createObjectURL(this.files[0]);
+    }
+});
+</script>
+
+</body>
+</html>
